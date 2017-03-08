@@ -15,34 +15,19 @@
             <div class='begin'>
                 <h2>Comedy Bang Bang</h2>
                 <div class='image'><img src='http://vignette3.wikia.nocookie.net/comedybangbang/images/d/d4/Logo.jpg/revision/latest?cb=20121024153636'></div>
-                <p>Test your knowledge on Comedy Bang Bang!</p>
-                <div class='quizButtons'>
-                    <button id='begin' type='button'>Begin</button>
-                </div>
-            </div>
-            <div class='progress'>
-                <div class='in-progress'>
-                    <span class='questionNum'>1</span> of 10 Questions</div>
-                <div class='in-progress'>Correct: <span class='correct'>0</span> Wrong: <span class='wrong'>0</span></div>
-            </div>
-            <div class='questions'>
-                <form name='questions' id='form'>
-                    <h3 class='question'><span class='questionTitle'>Question 1</span></h3>
-                    <p><input type="radio" name="choice" class="choice1" value='1' id="choice1input" required><label for="choice1input"
-                            id="choice1"></label><span class="post-text"></span></p>
-                    <p><input type="radio" name="choice" class="choice2" value='2' id="choice2input"><label for="choice2input"
-                            id="choice2"></label><span class="post-text"></span></p>
-                    <p><input type="radio" name="choice" class="choice3" value='3' id="choice3input"><label for="choice3input"
-                            id="choice3"></label><span class="post-text"></span></p>
-                    <p><input type="radio" name="choice" class="choice4" value='4' id="choice4input"><label for="choice4input"
-                            id="choice4"></label><span class="post-text"></span></p>
-                    <div class='quizButtons'><button type='submit' id='submit'>Submit</button><button type='button' id='next'>Next</button>
-                        <button type='button' id='reset'>Replay</button>
+                <div id="container">
+                    <p>Test Your Comedy Bang Bang Knowledge.</p>
+                    <div id="content">
+                        <h3 id="questions"></h3>
+                        <div id="choices"></div>
+                        <p id="score"></p>
                     </div>
+                </div>
             </div>
             </form>
             </div>
         </section>
+        <p><button id="submit" type="button">Submit</button></p>
     </main>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src='index.js'></script>
