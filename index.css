@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    margin-bottom: auto;
 }
 
 body {
@@ -20,7 +21,7 @@ h2,
 h3,
 .begin>p {
     text-align: center;
-    margin: 20px;
+    margin-top: 50px;
 }
 
 h3.question {
@@ -78,17 +79,4 @@ section {
 input {
     width: 25px;
     margin-bottom: 17px;
-}
-
-.progress {
-    top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.post-text {
-    display: inline-block;
-    font-style: italic;
-    font-size: 17px;
-    margin-left: 20px;
 }
