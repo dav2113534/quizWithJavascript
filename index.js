@@ -110,3 +110,13 @@ function checkAnswer() {
     }
 }
 
+//This little guy down here returns the score from the quiz 
+function showFinalResults() {
+    content.innerHTML = "<h2>You've complited the quiz!</h2>" +
+        "<h2>Check Out Your Results!:</h2>" +
+        "<h2>" + score + " out of " + quiz.length + " questions, " +
+        Math.round(score / quiz.length * 100) + "%<h2>";
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
