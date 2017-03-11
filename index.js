@@ -24,7 +24,7 @@ var currentQuestion = 0
 
 
 function checkAnswer(choice, correct) {
-    for (var i = 0; i < quiz[0].length; i++);
+    // for (var i = 0; i < quiz[0].length; i++); 
     if (quiz[0].choices === quiz[0].correct) {
         return true;
     } else {
@@ -47,13 +47,16 @@ function checkAnswer(choice, correct) {
     }
 }
 
-function nextQuestion(currentQuestion, quiz) {
-    if (currentQuestion === quiz.correct) {
+function nextQuestion(next, currentQuestion) {
+    var next = quiz.questions;
+    if (next === quiz.correct) {
         return quiz.questions;
     } else {
-        return "Wrong";
+        return false;
     }
 }
+
+
 
 function showResults(correct, wrong) {
     var wrong = "Wrong";
