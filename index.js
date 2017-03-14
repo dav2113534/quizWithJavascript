@@ -23,45 +23,6 @@ var quiz = [{
 var currentQuestion = 0
 
 
-function checkAnswer(choice, correct) {
-    // for (var i = 0; i < quiz[0].length; i++); 
-    if (quiz[0].choices === quiz[0].correct) {
-        return true;
-    } else {
-        return false;
-    }
-    if (quiz[1].choices === quiz[1].correct) {
-        return true;
-    } else {
-        return false;
-    }
-    if (quiz[2].choices === quiz[2].correct) {
-        return true;
-    } else {
-        return false;
-    }
-    if (quiz[3].choices === quiz[3].correct) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function nextQuestion(next, currentQuestion) {
-    var next = quiz.questions;
-    if (next === quiz.correct) {
-        return quiz.questions;
-    } else {
-        return false;
-    }
-}
-
-
-
-function showResults(correct, wrong) {
-    var wrong = "Wrong";
-}
-
 
 // checkAnswer
 // nextQuestion
