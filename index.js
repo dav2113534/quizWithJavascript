@@ -6,7 +6,7 @@ var state = {
     //with currentQuestion key added will allow me to reference the 
     //currentQuestion within the quiz object 
     currentQuestion: 0,
-    questions: [{
+    quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
         "choices": ["Jason Mantzoukas", "Paul F. thompkins", "Nick Kroll", "Scott Aukerman"],
         "correct": "Scott Aukerman"
@@ -64,11 +64,11 @@ function select(choice) {
     }
 }
 
-//I want this function to gather up the results to show the user their score
-function results(choices) {
-
+function render() {
+    $('#questions').text(state.quiz[0].questions);
 }
 
+render();
 
 //checkAnswer
 //nextQuestion
