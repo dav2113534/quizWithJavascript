@@ -2,7 +2,9 @@
 // creating array of objects will make it easier instead of creating each individual vars 
 
 
-var quiz = {
+var state = {
+    //with currentQuestion key added will allow me to reference the 
+    //currentQuestion within the quiz object 
     currentQuestion: 0,
     questions: [{
         "questions": "Who is the host of Comedy Bang Bang?",
@@ -27,13 +29,14 @@ var quiz = {
     }
 };
 
-
-
-
-
-
+// This function will check to see if the choice selected is correct 
+function checkAnswer() {
+    if (currentQuestion === currentQuestionChoice) {
+        return "Correct";
+    } else {
+        return "Incorrect";
+    }
+}
 
 
 // checkAnswer
-// nextQuestion
-// showResults
