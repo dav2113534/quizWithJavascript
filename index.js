@@ -43,15 +43,14 @@ function checkAnswer(state, choice) {
 
 
 //this function will go to the next question 
-function nextQuestion(state, next) {
-    var next = state.questions[0].questions++;
-    var currentQuestionNext = state.currentQuestion++;
-    if (currentQuestion === checkAnswer) {
-        return go;
+function nextQuestion(state) {
+    var next = state.currentQuestion++;
+    if (state.currentQuestion === state.questions.length) {
+        return next;
     } else {
-        return nothing;
+        return false;
     }
 }
 
-// checkAnswer
-// nextQuestion
+//checkAnswer
+//nextQuestion
