@@ -63,6 +63,13 @@ function select(choice) {
         state.choices[state.currentQuestion] = choice;
     }
 }
+
+//I want this function to gather up the results to show the user their score
+function results(choices) {
+
+}
+
+
 //checkAnswer
 //nextQuestion
 //selected choice
