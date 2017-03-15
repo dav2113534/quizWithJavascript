@@ -52,5 +52,18 @@ function nextQuestion(state) {
     }
 }
 
+//this function saves a users selected choice into the choice array
+function select(choice) {
+    var choiceAlreadySelected = state.currentQuestionChoice() !== undefined;
+    if (choiceAlreadySelected) {
+        //Does nothing if the choice is already selected
+        return false;
+    } else {
+        //saves choice
+        state.choices[state.currentQuestion] = choice;
+    }
+}
 //checkAnswer
 //nextQuestion
+//selected choice
+//results
