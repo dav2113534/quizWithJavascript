@@ -32,7 +32,7 @@ var state = {
 // This function will check to see if the choice selected is correct 
 // created a var for correctChoice so that it is easier to follow
 function checkAnswer(state, choice) {
-    var correctChoice = state.questions[0].correct;
+    var correctChoice = state.quiz[0].correct;
     if (choice === correctChoice) {
         return "Correcto!!!!";
     } else {
@@ -44,8 +44,8 @@ function checkAnswer(state, choice) {
 
 //this function will go to the next question 
 function nextQuestion(state) {
-    var next = state.currentQuestion++;
-    if (state.currentQuestion === state.questions.length) {
+    var next = state.currentQuestion + 1;
+    if (state.currentQuestion !== state.quiz.length - 1) {
         return next;
     } else {
         return false;
@@ -65,8 +65,21 @@ function select(choice) {
 }
 
 function render() {
-    $('#questions').text(state.quiz[0].questions);
+    $('#questions').text(state.quiz[state.currentQuestion].questions);
+
 }
+
+$('#submit').click(function () {
+    var next = nextQuestion(state);
+    if (next !== false) {
+        state.currentQuestion = nextQuestion(state);
+        render();
+    } else {
+        console.log("it's done");
+    }
+
+
+})
 
 render();
 
