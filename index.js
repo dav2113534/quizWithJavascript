@@ -39,4 +39,26 @@ function checkAnswer(state, choice) {
         return "WRONG!!";
     }
 }
+
+function nextQuestion(state, next) {
+    var next = state.questions[0].questions++;
+    if (currentQuestion === checkAnswer) {
+        return go;
+    } else {
+        return nothing;
+    }
+}
+
+//this function will go to the next question 
+function nextQuestion(state, next) {
+    var next = state.questions[0].questions++;
+    var currentQuestionNext = state.currentQuestion++;
+    if (currentQuestion === checkAnswer) {
+        return go;
+    } else {
+        return nothing;
+    }
+}
+
 // checkAnswer
+// nextQuestion
