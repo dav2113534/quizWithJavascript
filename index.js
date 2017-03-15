@@ -30,13 +30,13 @@ var state = {
 };
 
 // This function will check to see if the choice selected is correct 
-function checkAnswer() {
-    if (currentQuestion === currentQuestionChoice) {
-        return "Correct";
+// created a var for correctChoice so that it is easier to follow
+function checkAnswer(state, choice) {
+    var correctChoice = state.questions[0].correct;
+    if (choice === correctChoice) {
+        return "Correcto!!!!";
     } else {
-        return "Incorrect";
+        return "WRONG!!";
     }
 }
-
-
 // checkAnswer
