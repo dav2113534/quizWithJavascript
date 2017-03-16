@@ -64,11 +64,13 @@ function select(choice) {
     }
 }
 
+//displays questions
 function render() {
     $('#questions').text(state.quiz[state.currentQuestion].questions);
 
 }
 
+//goes to next question 
 $('#submit').click(function () {
     var next = nextQuestion(state);
     if (next !== false) {
@@ -77,13 +79,18 @@ $('#submit').click(function () {
     } else {
         console.log("it's done");
     }
-
-
 })
+
+
+//I want this function to display choices 
+function renderChoices() {
+    console.log('ello');
+    $('#choices').text(state.quiz[0].choices);
+}
+
 
 render();
 
 //checkAnswer
 //nextQuestion
 //selected choice
-//results
