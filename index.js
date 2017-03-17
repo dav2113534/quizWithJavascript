@@ -56,7 +56,7 @@ function nextQuestion(state) {
 //This function goes to next set of choices 
 function nextChoices(state) {
     var next = state.currentChoice + 1;
-    if (state.quiz[0].choices !== state.quiz.length - 1) {
+    if (state.currentChoice !== state.quiz.length - 1) {
         return next;
     } else {
         return false;
@@ -97,6 +97,7 @@ $('#submit').click(function () {
 function renderChoices() {
     $('#choices').text(state.quiz[0].choices);
 }
+
 
 renderChoices();
 render();
