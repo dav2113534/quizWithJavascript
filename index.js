@@ -92,6 +92,17 @@ $('#submit').click(function () {
     }
 })
 
+//goes to next set of choices
+$('#submit').click(function () {
+    var nextSet = nextChoices(state);
+    if (nextSet != false) {
+        state.currentChoice = nextChoices(state);
+        renderChoices();
+    } else {
+        console.log("choices next");
+    }
+})
+
 
 //I want this function to display choices 
 function renderChoices() {
