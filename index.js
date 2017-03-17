@@ -55,14 +55,13 @@ function nextQuestion(state) {
 
 //This function goes to next set of choices 
 function nextChoices(state) {
-    var next = state.currentChoice + 1;
+    var nextSet = state.currentChoice + 1;
     if (state.currentChoice !== state.quiz.length - 1) {
-        return next;
+        return nextSet;
     } else {
         return false;
     }
 }
-
 //this function saves a users selected choice into the choice array
 function select(choice) {
     var choiceAlreadySelected = state.currentQuestionChoice() !== undefined;
@@ -81,6 +80,12 @@ function render() {
 
 }
 
+//I want this function to display choices 
+function renderChoices() {
+    $('#choices').text(state.quiz[state.currentChoice].choices);
+}
+
+
 //goes to next question 
 $('#submit').click(function () {
     var next = nextQuestion(state);
@@ -93,6 +98,7 @@ $('#submit').click(function () {
 })
 
 //goes to next set of choices
+//but its not functional right now 10:20 PM 
 $('#submit').click(function () {
     var nextSet = nextChoices(state);
     if (nextSet != false) {
@@ -104,10 +110,6 @@ $('#submit').click(function () {
 })
 
 
-//I want this function to display choices 
-function renderChoices() {
-    $('#choices').text(state.quiz[0].choices);
-}
 
 
 renderChoices();
