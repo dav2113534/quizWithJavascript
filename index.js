@@ -6,6 +6,7 @@ var state = {
     //with currentQuestion key added will allow me to reference the 
     //currentQuestion within the quiz object 
     currentQuestion: 0,
+    currentChoice: 0,
     quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
         "choices": ["Jason Mantzoukas", "Paul F. thompkins", "Nick Kroll", "Scott Aukerman"],
@@ -52,6 +53,16 @@ function nextQuestion(state) {
     }
 }
 
+//This function goes to next set of choices 
+function nextChoices(state) {
+    var next = state.currentChoice + 1;
+    if (state.quiz[0].choices !== state.quiz.length - 1) {
+        return next;
+    } else {
+        return false;
+    }
+}
+
 //this function saves a users selected choice into the choice array
 function select(choice) {
     var choiceAlreadySelected = state.currentQuestionChoice() !== undefined;
@@ -84,11 +95,10 @@ $('#submit').click(function () {
 
 //I want this function to display choices 
 function renderChoices() {
-    console.log('ello');
     $('#choices').text(state.quiz[0].choices);
 }
 
-
+renderChoices();
 render();
 
 //checkAnswer
