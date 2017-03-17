@@ -42,7 +42,6 @@ function checkAnswer(state, choice) {
 }
 
 
-
 //this function will go to the next question 
 function nextQuestion(state) {
     var next = state.currentQuestion + 1;
@@ -77,8 +76,14 @@ function select(choice) {
 //displays questions
 function render() {
     $('#questions').text(state.quiz[state.currentQuestion].questions);
-
+    console.log(state.quiz[0].choices);
+    for (var i = 0; i < state.quiz[0].choices.length; i++)
+        $('#choices').append('<li type="checkboxes">' + state.quiz[0].choices[i] + '</li>');
 }
+
+//append 
+//I'm trying to get this function to list the choices as checkboxes
+
 
 //I want this function to display choices 
 function renderChoices() {
