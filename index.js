@@ -74,20 +74,21 @@ function select(choice) {
 }
 
 //displays questions
+//also lists the choices 
 function render() {
-    $('#questions').text(state.quiz[state.currentQuestion].questions);
-    console.log(state.quiz[0].choices);
-    for (var i = 0; i < state.quiz[0].choices.length; i++)
-        $('#choices').append('<li type="checkboxes">' + state.quiz[0].choices[i] + '</li>');
+    var david = state.quiz[state.currentQuestion];
+    $('#questions').text(david.questions);
+    renderChoices(david.choices);
 }
 
-//append 
-//I'm trying to get this function to list the choices as checkboxes
 
 
 //I want this function to display choices 
-function renderChoices() {
-    $('#choices').text(state.quiz[state.currentChoice].choices);
+function renderChoices(choices) {
+    var string = choices.map(function (choice) {
+        return "<li>" + choice + "</li>";
+    }).join("");
+    $('#choices').html(string);
 }
 
 
@@ -103,7 +104,6 @@ $('#submit').click(function () {
 })
 
 //goes to next set of choices
-//but its not functional right now 10:20 PM 
 $('#submit').click(function () {
     var nextSet = nextChoices(state);
     if (nextSet != false) {
@@ -117,7 +117,6 @@ $('#submit').click(function () {
 
 
 
-renderChoices();
 render();
 
 //checkAnswer
