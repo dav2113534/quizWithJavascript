@@ -82,12 +82,14 @@ function render() {
 }
 
 
+//adds radio buttons to each choice 
+function renderChoice(choice, index) {
+    return '<label><input type="radio" name="choices" value="index">' + choice;
+}
 
 //I want this function to display choices 
 function renderChoices(choices) {
-    var string = choices.map(function (choice) {
-        return "<li>" + choice + "</li>";
-    }).join("");
+    var string = choices.map(renderChoice).join("");
     $('#choices').html(string);
 }
 
@@ -122,3 +124,4 @@ render();
 //checkAnswer
 //nextQuestion
 //selected choice
+//show results correct or incorrect
