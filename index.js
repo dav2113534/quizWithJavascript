@@ -41,6 +41,12 @@ function checkAnswer(state, choice) {
     }
 }
 
+//I want this to pop a message if its wrong or correct 
+function answerQuestion(state, answer) {
+    var currentQuestion = state.quiz[state.currentQuestion];
+    state
+}
+
 
 //this function will go to the next question 
 function nextQuestion(state) {
