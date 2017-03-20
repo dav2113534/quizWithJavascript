@@ -24,6 +24,7 @@ var state = {
         "choices": ["Whats up Hotdog", "Dog Days of Auggie Doggie", "Heynongman", "A peanut in the rain"],
         "correct": "Whats up Hotdog"
     }],
+    score: 0,
     choices: {},
     currentQuestionChoice: function () {
         return this.choices[this.currentQuestion];
@@ -41,18 +42,23 @@ function checkAnswer(state, choice) {
     }
 }
 
-//I want this to pop a message if its wrong or correct 
-function answerQuestion(state, answer) {
-    var currentQuestion = state.quiz[state.currentQuestion];
-    state
+//I want this to add up the correct + wrong choices 
+function totalScore(state, score) {
+    var dave = state.currentQuestion;
+    var total = state.score++;
+    if (dave === correct) {
+        return total;
+    } else {
+        return "Wrong!"
+    }
 }
-
 
 //this function will go to the next question 
 function nextQuestion(state) {
     var next = state.currentQuestion + 1;
     if (state.currentQuestion !== state.quiz.length - 1) {
         return next;
+        if (state.quiz.questions[state.currentQuestion] == state.quiz.correct);
     } else {
         return false;
     }
@@ -99,9 +105,9 @@ function renderChoice(choice, index) {
 }
 
 
+
 //I want this function to display choices 
 function renderChoices(choices) {
-    console.log('hello there');
     var string = choices.map(renderChoice).join("");
     $('#choices').html(string);
 }
@@ -109,6 +115,8 @@ function renderChoices(choices) {
 
 //goes to next question 
 $('#submit').click(function () {
+    var choice = $('input[name=choices]:checked').val();
+    checkAnswer(state, choice);
     var next = nextQuestion(state);
     if (next !== false) {
         state.currentQuestion = nextQuestion(state);
@@ -118,16 +126,6 @@ $('#submit').click(function () {
     }
 })
 
-//goes to next set of choices
-$('#submit').click(function () {
-    var nextSet = nextChoices(state);
-    if (nextSet != false) {
-        state.currentChoice = nextChoices(state);
-        renderChoices();
-    } else {
-        console.log("choices next");
-    }
-})
 
 //I want this function to check the answer once clicked and respond with a correct or 
 //incorrect message 
