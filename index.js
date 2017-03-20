@@ -10,19 +10,19 @@ var state = {
     quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
         "choices": ["Jason Mantzoukas", "Paul F. thompkins", "Nick Kroll", "Scott Aukerman"],
-        "correct": "Scott Aukerman"
+        "correct": "3"
     }, {
         "questions": "What was the original name of the podcast",
         "choices": ["Comedy Death Ray", "Comedy Bang Bang", "Hello from the magic Tavern", "Nerdist"],
-        "correct": "Comedy Death Ray"
+        "correct": "0"
     }, {
         "questions": "What year did Comedy Bang Bang start?",
         "choices": ["1999", "2007", "2008", "2009"],
-        "correct": "2009"
+        "correct": "3"
     }, {
         "questions": "What is the famous catch phrase of the show?",
         "choices": ["Whats up Hotdog", "Dog Days of Auggie Doggie", "Heynongman", "A peanut in the rain"],
-        "correct": "Whats up Hotdog"
+        "correct": "0"
     }],
     score: 0,
     choices: {},
@@ -34,11 +34,11 @@ var state = {
 // This function will check to see if the choice selected is correct 
 // created a var for correctChoice so that it is easier to follow
 function checkAnswer(state, choice) {
-    var correctChoice = state.quiz[0].correct;
+    var correctChoice = state.quiz[state.currentQuestion].correct;
     if (choice === correctChoice) {
-        return "Correcto!!!!";
+        return true;
     } else {
-        return "WRONG!!";
+        return false;
     }
 }
 
@@ -116,7 +116,17 @@ function renderChoices(choices) {
 //goes to next question 
 $('#submit').click(function () {
     var choice = $('input[name=choices]:checked').val();
-    checkAnswer(state, choice);
+    var correctAnswer = checkAnswer(state, choice);
+    if (correctAnswer === true) {
+        alert("Way to go Buddy!");
+        goNext(state);
+    }
+})
+
+
+//respond to the user choice selection
+
+function goNext(state) {
     var next = nextQuestion(state);
     if (next !== false) {
         state.currentQuestion = nextQuestion(state);
@@ -124,12 +134,7 @@ $('#submit').click(function () {
     } else {
         console.log("it's done");
     }
-})
-
-
-//I want this function to check the answer once clicked and respond with a correct or 
-//incorrect message 
-
+}
 
 
 render();
