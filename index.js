@@ -46,7 +46,9 @@ function results(correct) {
     var correct = state.quiz[state.currentQuestion].correct;
     var wrong = state.currentQuestionChoice;
     if (state.currentQuestion === correct) {
-
+        correct.push()[state.choices];
+    } else {
+        wrong.push()[state.choices];
     }
 }
 
