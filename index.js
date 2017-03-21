@@ -1,4 +1,3 @@
-//Making this quiz run using only javascript (no jquery)
 // creating array of objects will make it easier instead of creating each individual vars 
 
 
@@ -42,16 +41,15 @@ function checkAnswer(state, choice) {
     }
 }
 
-//I want this to add up the correct + wrong choices 
-function totalScore(state, score) {
-    var dave = state.currentQuestion;
-    var total = state.score++;
-    if (dave === correct) {
-        return total;
-    } else {
-        return "Wrong!"
+//This will show results from quiz
+function results(correct) {
+    var correct = state.quiz[state.currentQuestion].correct;
+    var wrong = state.currentQuestionChoice;
+    if (state.currentQuestion === correct) {
+
     }
 }
+
 
 //this function will go to the next question 
 function nextQuestion(state) {
@@ -113,19 +111,21 @@ function renderChoices(choices) {
 }
 
 
-//goes to next question 
+//respond to the user choice selection
 $('#submit').click(function () {
     var choice = $('input[name=choices]:checked').val();
     var correctAnswer = checkAnswer(state, choice);
+    select(choice);
     if (correctAnswer === true) {
         alert("Way to go Buddy!");
         goNext(state);
+    } else {
+        alert("C'mon man! Try harder!!!");
     }
 })
 
 
-//respond to the user choice selection
-
+//Goes to next question 
 function goNext(state) {
     var next = nextQuestion(state);
     if (next !== false) {
@@ -137,17 +137,12 @@ function goNext(state) {
 }
 
 
+
+
 render();
 
 //checkAnswer
 //nextQuestion
 //selected choice
 //show results correct or incorrect
-
-
-// Users start on a screen where they can click a button to start the quiz.
-// Once the game is started, the user should be prompted through a series of at least 5 multiple choice questions which they can answer. Questions are to be asked one after another, and the user should only be able to view one question at a time.
-// Users should not be able to skip questions.
-// When viewing an individual question, the user should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
-// When a user submits an answer to a question, they should first get feedback on if their answer was correct or not. If it's incorrect, they should be shown the correct answer. Then they should be moved along to the next question.
-// After the user has completed the final question, they should be shown their overall score (in other words, how many questions they got right out of the total questions asked) and be able to start a new game.
+//handle results function and prints wrong and correct choices
