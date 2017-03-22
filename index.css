@@ -15,6 +15,7 @@ img {
     width: 50%;
     display: block;
     margin: auto;
+    padding-bottom: 70px;
 }
 
 h2,
@@ -38,11 +39,6 @@ p {
     margin: 7px;
     font-size: 18px;
     text-align: center;
-}
-
-.wrong-ans {
-    color: #CD3700;
-    font-weight: bold;
 }
 
 button {
@@ -79,4 +75,18 @@ section {
 input {
     width: 25px;
     margin-bottom: 17px;
+}
+
+#correct,
+#wrong {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    color: #3B3B3B;
+    margin-right: auto;
+    margin-left: auto;
+    user-select: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

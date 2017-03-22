@@ -6,6 +6,11 @@ var state = {
     //currentQuestion within the quiz object 
     currentQuestion: 0,
     currentChoice: 0,
+    answers: [{
+        correct: true
+    }, {
+        correct: false
+    }],
     quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
         "choices": ["Jason Mantzoukas", "Paul F. thompkins", "Nick Kroll", "Scott Aukerman"],
@@ -42,15 +47,24 @@ function checkAnswer(state, choice) {
 }
 
 //This will show results from quiz
-function results(correct) {
-    var correct = state.quiz[state.currentQuestion].correct;
+function results(correct, wrong) {
+    var correct = state.quiz[state.currentQuestion].corrrect;
     var wrong = state.currentQuestionChoice;
-    if (state.currentQuestion === correct) {
-        correct.push()[state.choices];
+    if (state.currentQuestion[state.currentQuestionChoice] === correct) {
+        correct.push[state.answers[0]];
     } else {
-        wrong.push()[state.choices];
+        wrong.currentQuestion[state.currentQuestionChoice[1]];
     }
 }
+// function results(correct) {
+//     var correct = state.quiz[state.currentQuestion].correct;
+//     var wrong = state.currentQuestionChoice;
+//     if (state.currentQuestion === correct) {
+//         correct.push()[state.choices];
+//     } else {
+//         wrong.push()[state.choices];
+//     }
+// }
 
 
 //this function will go to the next question 
