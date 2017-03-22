@@ -28,7 +28,6 @@ var state = {
         "choices": ["Whats up Hotdog", "Dog Days of Auggie Doggie", "Heynongman", "A peanut in the rain"],
         "correct": "0"
     }],
-    score: 0,
     choices: {},
     currentQuestionChoice: function () {
         return this.choices[this.currentQuestion];
@@ -51,21 +50,13 @@ function results(correct, wrong) {
     var correct = state.quiz[state.currentQuestion].corrrect;
     var wrong = state.currentQuestionChoice;
     if (state.currentQuestion[state.currentQuestionChoice] === correct) {
-        correct.push[state.answers[0]];
+        correct.map[state.answers[0]];
+        state.answers[0] += 1;
     } else {
         wrong.currentQuestion[state.currentQuestionChoice[1]];
+        state.answers[1] += 1;
     }
 }
-// function results(correct) {
-//     var correct = state.quiz[state.currentQuestion].correct;
-//     var wrong = state.currentQuestionChoice;
-//     if (state.currentQuestion === correct) {
-//         correct.push()[state.choices];
-//     } else {
-//         wrong.push()[state.choices];
-//     }
-// }
-
 
 //this function will go to the next question 
 function nextQuestion(state) {
@@ -152,6 +143,20 @@ function goNext(state) {
     }
 }
 
+function renderResults(state, element) {
+    var choices = state.answers[0];
+    var text = choices[Math.floor(choices.length)];
+    element.text(text);
+}
+
+$('#results').click(function () {
+    renderResults();
+
+    function final(state, element) {
+        var text = "You got" + state.answers + "out of" + state.quiz.questions.length + "questions right.";
+        element.text(text);
+    }
+})
 
 
 
