@@ -50,11 +50,11 @@ function results(correct, wrong) {
     var correct = state.quiz[state.currentQuestion].corrrect;
     var wrong = state.currentQuestionChoice;
     if (state.currentQuestion[state.currentQuestionChoice] === correct) {
-        correct.map[state.answers[0]];
-        state.answers[0] += 1;
+        // correct[state.answers[0]];
+        state.answers[0]++;
     } else {
         wrong.currentQuestion[state.currentQuestionChoice[1]];
-        state.answers[1] += 1;
+        state.answers[1]++;
     }
 }
 
@@ -87,6 +87,9 @@ function select(choice) {
     } else {
         //saves choice
         state.choices[state.currentQuestion] = choice;
+        state.choices = choice;
+                console.log("i'm working extra hard")
+
     }
 }
 
@@ -143,21 +146,17 @@ function goNext(state) {
     }
 }
 
-function renderResults(state, element) {
-    var choices = state.answers[0];
-    var text = choices[Math.floor(choices.length)];
-    element.text(text);
-}
-
+//Will display results once results button is clicked
 $('#results').click(function () {
-    renderResults();
+    results(correct, wrong);
 
-    function final(state, element) {
-        var text = "You got" + state.answers + "out of" + state.quiz.questions.length + "questions right.";
-        element.text(text);
+    function final(state) {
+        var text = "You got" + state.answers[0] + "out of" + state.quiz.questions.length + "questions right.";
+        if (state.quiz.questions[3] === state.quiz.correct[3]) {
+
+        }
     }
 })
-
 
 
 render();
