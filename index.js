@@ -90,14 +90,6 @@ function goNext(state) {
 }
 
 
-function final(state) {
-    var text = "You got" + state.score + "out of" + state.quiz.questions.length + "questions right.";
-    if (state.quiz.questions[3] === state.quiz.correct[3]) {
-        return text;
-    }
-}
-
-
 //displays questions
 //also lists the choices 
 function render() {
@@ -141,6 +133,16 @@ $('#submit').click(function () {
 })
 
 //Will display results once results button is clicked
+$('#results').click(function () {
+    console.log("hi");
+    var text = "You got " + state.score + " out of " + state.quiz.length + " questions right.";
+    if (state.quiz[3] === state.quiz[3]) {
+        alert(text);
+    }
+})
+
+
+
 
 
 render();
