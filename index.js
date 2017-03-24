@@ -6,11 +6,7 @@ var state = {
     //currentQuestion within the quiz object 
     currentQuestion: 0,
     currentChoice: 0,
-    answers: [{
-        correct: true
-    }, {
-        correct: false
-    }],
+
     quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
         "choices": ["Jason Mantzoukas", "Paul F. thompkins", "Nick Kroll", "Scott Aukerman"],
@@ -46,17 +42,17 @@ function checkAnswer(state, choice) {
 }
 
 //This will show results from quiz
-function results(correct, wrong) {
-    var correct = state.quiz[state.currentQuestion].corrrect;
-    var wrong = state.currentQuestionChoice;
-    if (state.currentQuestion[state.currentQuestionChoice] === correct) {
-        // correct[state.answers[0]];
-        state.answers[0]++;
-    } else {
-        wrong.currentQuestion[state.currentQuestionChoice[1]];
-        state.answers[1]++;
-    }
-}
+// function results(correct, wrong) {
+//     var correct = state.quiz[state.currentQuestion].corrrect;
+//     var wrong = state.currentQuestionChoice;
+//     if (state.currentQuestion[state.currentQuestionChoice] === correct) {
+//         // correct[state.answers[0]];
+//         state.answers[0]++;
+//     } else {
+//         wrong.currentQuestion[state.currentQuestionChoice[1]];
+//         state.answers[1]++;
+//     }
+// }
 
 //this function will go to the next question 
 function nextQuestion(state) {
@@ -88,8 +84,7 @@ function select(choice) {
         //saves choice
         state.choices[state.currentQuestion] = choice;
         state.choices = choice;
-                console.log("i'm working extra hard")
-
+        console.log("im working extra hard")
     }
 }
 
@@ -121,6 +116,27 @@ function renderChoices(choices) {
 }
 
 
+//Goes to next question 
+function goNext(state) {
+    var next = nextQuestion(state);
+    if (next !== false) {
+        state.currentQuestion = nextQuestion(state);
+        render();
+    } else {
+        console.log("its done")
+        //Maybe show the results here? 
+
+    }
+}
+
+function final(state) {
+    var text = "You got" + state.choice + "out of" + state.quiz.questions.length + "questions right.";
+    if (state.quiz.questions[3] === state.quiz.correct[3]) {
+
+    }
+}
+
+
 //respond to the user choice selection
 $('#submit').click(function () {
     var choice = $('input[name=choices]:checked').val();
@@ -134,27 +150,15 @@ $('#submit').click(function () {
     }
 })
 
-
-//Goes to next question 
-function goNext(state) {
-    var next = nextQuestion(state);
-    if (next !== false) {
-        state.currentQuestion = nextQuestion(state);
-        render();
-    } else {
-        console.log("it's done");
-    }
-}
-
 //Will display results once results button is clicked
 $('#results').click(function () {
-    results(correct, wrong);
-
-    function final(state) {
-        var text = "You got" + state.answers[0] + "out of" + state.quiz.questions.length + "questions right.";
-        if (state.quiz.questions[3] === state.quiz.correct[3]) {
-
-        }
+    conosole.log("hello");
+    var correct = state.quiz.questions[state.quiz.correct];
+    final();
+    if (correct === true) {
+        console.log("Working?")
+    } else {
+        console.log("Not?")
     }
 })
 
