@@ -1,11 +1,9 @@
-// creating array of objects will make it easier instead of creating each individual vars 
-
-
 var state = {
     //with currentQuestion key added will allow me to reference the 
     //currentQuestion within the quiz object 
     currentQuestion: 0,
     currentChoice: 0,
+    score: 0,
 
     quiz: [{
         "questions": "Who is the host of Comedy Bang Bang?",
@@ -35,6 +33,7 @@ var state = {
 function checkAnswer(state, choice) {
     var correctChoice = state.quiz[state.currentQuestion].correct;
     if (choice === correctChoice) {
+        state.score++;
         return true;
     } else {
         return false;
@@ -42,17 +41,7 @@ function checkAnswer(state, choice) {
 }
 
 //This will show results from quiz
-// function results(correct, wrong) {
-//     var correct = state.quiz[state.currentQuestion].corrrect;
-//     var wrong = state.currentQuestionChoice;
-//     if (state.currentQuestion[state.currentQuestionChoice] === correct) {
-//         // correct[state.answers[0]];
-//         state.answers[0]++;
-//     } else {
-//         wrong.currentQuestion[state.currentQuestionChoice[1]];
-//         state.answers[1]++;
-//     }
-// }
+function results() {};
 
 //this function will go to the next question 
 function nextQuestion(state) {
@@ -88,6 +77,27 @@ function select(choice) {
     }
 }
 
+
+//Goes to next question 
+function goNext(state) {
+    var next = nextQuestion(state);
+    if (next !== false) {
+        state.currentQuestion = nextQuestion(state);
+        render();
+    } else {
+        console.log("its done")
+    }
+}
+
+
+function final(state) {
+    var text = "You got" + state.score + "out of" + state.quiz.questions.length + "questions right.";
+    if (state.quiz.questions[3] === state.quiz.correct[3]) {
+        return text;
+    }
+}
+
+
 //displays questions
 //also lists the choices 
 function render() {
@@ -116,26 +126,6 @@ function renderChoices(choices) {
 }
 
 
-//Goes to next question 
-function goNext(state) {
-    var next = nextQuestion(state);
-    if (next !== false) {
-        state.currentQuestion = nextQuestion(state);
-        render();
-    } else {
-        console.log("its done")
-        //Maybe show the results here? 
-
-    }
-}
-
-function final(state) {
-    var text = "You got" + state.choice + "out of" + state.quiz.questions.length + "questions right.";
-    if (state.quiz.questions[3] === state.quiz.correct[3]) {
-
-    }
-}
-
 
 //respond to the user choice selection
 $('#submit').click(function () {
@@ -151,16 +141,6 @@ $('#submit').click(function () {
 })
 
 //Will display results once results button is clicked
-$('#results').click(function () {
-    conosole.log("hello");
-    var correct = state.quiz.questions[state.quiz.correct];
-    final();
-    if (correct === true) {
-        console.log("Working?")
-    } else {
-        console.log("Not?")
-    }
-})
 
 
 render();
