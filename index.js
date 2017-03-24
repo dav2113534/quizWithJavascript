@@ -129,6 +129,8 @@ $('#submit').click(function () {
         goNext(state);
     } else {
         alert("C'mon man! Try harder!!!");
+        goNext(state);
+
     }
 })
 
